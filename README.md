@@ -1,58 +1,64 @@
 # Multi-Asset Portfolio Strategy
 
-This project implements a simple backtest of an equal-weighted portfolio consisting of multiple asset classes:
+This project explores a simple momentum-based strategy across a diversified multi-asset portfolio consisting of:
 
-- AAPL (Apple Inc.)
-- TSLA (Tesla Inc.)
-- PFE (Pfizer)
-- BTC-USD (Bitcoin)
-- GLD (Gold ETF)
-- SPY (S&P 500 Index ETF)
+- **AAPL** (Apple)
+- **TSLA** (Tesla)
+- **PFE** (Pfizer)
+- **BTC-USD** (Bitcoin)
+- **GLD** (Gold ETF)
+- **SPY** (S&P 500 ETF)
 
-The goal is to simulate the cumulative return of this diversified portfolio from 2019 to 2024, and evaluate its performance using key financial metrics.
-
----
-
-## 📈 Strategy Overview
-
-- Assets are weighted equally
-- Portfolio is rebalanced daily (static weights)
-- Simulates $10,000 initial capital with no leverage
+The goal is to evaluate overall portfolio performance, understand risk-adjusted returns, and visualize dynamic Sharpe ratio changes over time.
 
 ---
 
-## 🧮 Metrics Summary
+## Strategy Overview
 
-| Metric               | Value       |
-|----------------------|-------------|
-| Total Return         | 598%        |
-| Annualized Return    | 38.33%      |
-| Annual Volatility    | 23.99%      |
-| Sharpe Ratio         | 1.60        |
-| Max Drawdown         | -35.90%     |
-
----
-
-## 📊 Visualizations
-
-- Cumulative Return Curve
-- Drawdown Curve
-- Asset Allocation Over Time
+- Historical daily price data is fetched using `yfinance`
+- Portfolio is **equal-weighted** across all selected assets
+- Core metrics computed:
+  - Total return
+  - Annualized return
+  - Annualized volatility
+  - Sharpe ratio
+  - Maximum drawdown
+- Rolling **60-day Sharpe ratio** is used to observe changing risk-adjusted return
 
 ---
 
-## 📁 Files
+## Key Results
 
-- `multi_asset_portfolio.ipynb` — Main analysis notebook
-- `drawdown.png` — Drawdown chart
-- `allocation.png` — Asset allocation over time
-- `README.md` — You’re reading it!
+- **Total Return**: 598.00%  
+- **Annualized Return**: 38.33%  
+- **Sharpe Ratio**: 1.60  
+- **Max Drawdown**: -35.90%
 
 ---
 
-## 💬 Why This Project?
+## Visual Output
 
-As someone transitioning into quantitative and fintech roles, this project demonstrates the ability to:
-- Handle real financial data
-- Apply portfolio analytics
-- Visualize and communicate insights clearly
+### Cumulative Returns
+![Cumulative Returns](cumulative_returns.png)
+
+### 60-Day Rolling Sharpe Ratio
+![Rolling Sharpe Ratio](rolling_sharpe.png)
+
+---
+
+## Tools Used
+
+- `Python`
+- `yfinance` – historical data retrieval
+- `pandas`, `numpy` – data transformation
+- `matplotlib` – visualization
+
+---
+
+## How to Use
+
+```bash
+git clone https://github.com/HaoyuTu/multi-asset-portfolio-strategy.git
+cd multi-asset-portfolio-strategy
+pip install yfinance pandas matplotlib
+jupyter notebook
